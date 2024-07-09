@@ -8,21 +8,6 @@ type Coords = {
 
 export type Board = Map<string, Cell>;
 
-function convertToMapBoard(oldBoard: Array<Array<Cell>>): Board {
-    const newBoard: Board = new Map();
-
-    oldBoard.forEach((row, y) => {
-        row.forEach((cell, x) => {
-            const key = `${x},${y}`;
-            if (cell.value !== Op.Empty) {
-                newBoard.set(key, cell);
-            }
-        });
-    });
-
-    return newBoard;
-}
-
 export function getBoardSize(board: Board) : [number, number, number, number] {
     if (board.size === 0) return [0, 0, 0, 0];
 
