@@ -211,5 +211,3 @@ The output may differ from the correct value by 1.
   * `A = -1168378317`
     `Answer = -920116684`
 
-
-Process finished with exit code 0

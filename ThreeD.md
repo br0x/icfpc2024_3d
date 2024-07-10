@@ -237,25 +237,3 @@ test 3d A B
 
 where `A` and `B` must be integer values which are given to the corresponding inputs. Unlike the `solve` command, the `test` command has a tick limit of `4`.
 
-### Notes
-  |0|1|2
---+-+-+-+
-0 |. 1 .
-1 |A + 7
-2 |. 2 v
-3 |. . .
-
-1. op + at [1,1]
-   write results to [1,2] and [2,1] in dst board, mark [1,2] and [2,1] as dirty
-2. op v at [2,2]
-   write result to [2,3] in dst board, mark [2,3] as dirty
-3. If warps list is not empty, no need to process any ops except warps (their result will be lost anyway)
-
-function create2DArrayOfCells(rows: number, cols: number): Cell[][] {
-    return Array(rows).fill(null).map(() => 
-        Array(cols).fill(null).map(() => new Cell(Op.Empty))
-    );
-}
-
-// Usage:
-const cellArray = create2DArrayOfCells(5, 5);
