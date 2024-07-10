@@ -1,6 +1,6 @@
 This is an interpreter of 3D language from [ICFP Contest 2024](https://icfpcontest2024.github.io)
 
-Language description is inside [ThreeD.md]() document, and 13 tasks from the contest are in [Tasks3D.md]()
+Language description is inside [ThreeD.md](ThreeD.md) document, and 13 tasks from the contest are in [Tasks3D.md](Tasks3D.md)
 ### Live version to play around:
 https://br0x.github.io/icfpc2024_3d
 
