@@ -77,6 +77,11 @@ export function step(t: number, history: Array<[Board, bigint | undefined]>): [B
         out.set(key, new Cell(cValue, true));
     }
 
+    // Testcase:     Expected:     Actual:
+    // .  1  >  .    .  .  >  1    .  .  .  .
+    // 15 -  .  .    .  -  14 .    .  -  14 .
+    // v  .  .  .    v  14 .  .    v  14 .  .
+    // 42 .  .  .    15 .  .  .    42 .  .  .
     //            arrowCoords           direction
     function move(x: number, y: number, dx: number, dy: number) {
         const sx = x - dx; // source cell to move
@@ -196,7 +201,7 @@ export function step(t: number, history: Array<[Board, bigint | undefined]>): [B
         }
     }
 
-    // copy src operators, not marked as dirty, to dst board
+    // copy src operators, not marked as dirty, to dst board, but only if dst cell is not marked as dirty
     for (const key of board.keys()) {
         const cell = board.get(key)!;
         if (cell.dirty) continue;
@@ -215,11 +220,13 @@ export function step(t: number, history: Array<[Board, bigint | undefined]>): [B
             case Op.NEq:
             case Op.Solve:
             case Op.Warp:
-                out.set(key, new Cell(val)); break;
+                out.set(key, new Cell(val)); break; // TODO: Op can also be overwritten·
 
             default:
                 if (typeof val === 'bigint') {
-                    out.set(key, new Cell(val)); 
+                   if (!out.get(key)?.dirty) {
+                        out.set(key, new Cell(val)); 
+                   }
                     break;
                 }
                 throw new Error(`unexpected op: ${cell}`);

@@ -110,6 +110,7 @@ export function App() {
         const initialStep = init();
         setBoards([initialStep]);
         setStep(initialStep);
+        setResult('');
     }
 
     function onEdit(x: number, y: number, cell: Cell) {

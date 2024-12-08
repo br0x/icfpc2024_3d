@@ -9,11 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "preact": "^10.22.0"
+    "preact": "^10.25.1"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.8.2",
-    "typescript": "^5.2.2",
-    "vite": "^5.3.1"
-  }
+    "@babel/core": "^7.26.0",
+    "@preact/preset-vite": "^2.9.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3"
+  },
+  "packageManager": "yarn@4.5.3"
 }

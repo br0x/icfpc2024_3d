@@ -9,3 +9,6 @@ Some html layout improvements are necessary, but I'm not a frontend guy and this
 Pull requests are welcome.
 
 TODO: add a score calculation
+
+## After cloning repo:
+yarn install
